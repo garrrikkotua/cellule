@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Страница не найдена{% endblock %}
+{% block style %}<link rel="stylesheet" href={{ url_for('static', filename='css/404.css') }}>{% endblock %}
+
+{% block content %}
+    <h1>Страница не найдена</h1>
+    <p id="text"><a href="{{ url_for('main_page') }}">Идите на.. главную страницу:)</a></p>
+    <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" id="logo"></a>
+{% endblock %}

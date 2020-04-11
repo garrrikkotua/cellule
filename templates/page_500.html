@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Наш косяк{% endblock %}
+{% block style %}<link rel="stylesheet" href={{ url_for('static', filename='css/404.css') }}>{% endblock %}
+
+{% block content %}
+    <h1>Извините, что-то пошло не так. Ну накосячили немного)</h1>
+    <p id="text"><a href="{{ url_for('main_page') }}">На главную не хотите?</a></p>
+    <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" id="logo"></a>
+{% endblock %}

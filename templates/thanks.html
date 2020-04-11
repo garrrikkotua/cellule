@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Спасибо за отзыв!{% endblock %}
+{% block style %}<link rel="stylesheet" href={{ url_for('static', filename='css/thanks.css') }}>{% endblock %}
+
+{% block content %}
+    <section>
+    <div class="jumbotron text-center">
+          <h1 class="display-3">Спасибо!</h1>
+          <p class="lead"><strong>Надеемся, вам понравилось.</strong> Мы знаем, что сеть не всегда работает идеально. Но результат
+        предсказания большего всего зависит от качества изображения. Так что старайтесь использовать хорошие картинки.
+              Тем не менее, результат почти всегда является очень неплохой оценкой. <strong>Еще раз спасибо!</strong></p>
+          <hr>
+          <p>
+            Есть вопросы и предложения? <a href="https://teleg.run/garrrikkotua">Пишите нам в Telegram</a>
+          </p>
+          <p class="lead">
+            <span>
+            <a class="btn btn-primary btn-sm" href=""  onclick="javascript:history.back(); return false;" role="button">Назад к результату</a>
+            <a class="btn btn-primary btn-sm" href="/#start" role="button">Посчитать заново</a>
+            </span>
+          </p>
+
+        <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" id="logo"></a>
+    </div>
+    </section>
+{% endblock %}

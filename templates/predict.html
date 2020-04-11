@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Результат - {{ prediction.original }}{% endblock %}
+{% block style %}<link rel="stylesheet" href={{ url_for('static', filename='css/predict.css') }}>{% endblock %}
+
+{% block content %}
+    <div class="container" id="image-area">
+        <h1>Предсказание {{ prediction.type }} для {{ prediction.original }}</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-2">
+                <img class="img-fluid" id='predicted-image' src='{{ url_for('static', filename='maps/') }}{{ prediction.predicted }}' alt='Generated'>
+                <p>Количество клеток: {{ prediction.cells }}</p>
+            </div>
+            <div class="col-md-2">
+               <img class="img-fluid" id="original-image" src="{{ url_for('static', filename='uploads/') }}{{ prediction.original }}" alt="Original">
+                <p>Исходное изображение</p>
+            </div>
+        </div>
+        <form method="post" class="md-form" enctype="multipart/form-data">
+            <div class="container-fluid">
+             <div class="row justify-content-center">
+                <div class="col-md-offset-3">
+                    <p><strong>Оцените качество предсказания:</strong></p>
+                </div>
+                <div class="col-md-2">
+                    <form method="post">
+                      <div class="star-rating">
+                        <span class="fa fa-star-o align-top" data-rating="1"></span>
+                        <span class="fa fa-star-o align-top" data-rating="2"></span>
+                        <span class="fa fa-star-o align-top" data-rating="3"></span>
+                        <span class="fa fa-star-o align-top" data-rating="4"></span>
+                        <span class="fa fa-star-o align-top" data-rating="5"></span>
+                        <input type="hidden" name="whatever1" class="rating-value" value="0">
+                      </div>
+                    </form>
+                </div>
+              </div>
+                <div class="row justify-content-center">
+                    <input type="submit" class="btn btn-primary btn-lg mx-auto" value="Отправить" id="'go">
+                </div>
+            </div>
+        </form>
+
+
+    <script>
+        var $star_rating = $('.star-rating .fa');
+
+        var SetRatingStar = function() {
+          return $star_rating.each(function() {
+            if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+              return $(this).removeClass('fa-star-o').addClass('fa-star');
+            } else {
+              return $(this).removeClass('fa-star').addClass('fa-star-o');
+            }
+          });
+        };
+
+        $star_rating.on('click', function() {
+          $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+          return SetRatingStar();
+});
+
+        SetRatingStar();
+        $(document).ready(function() {
+
+        });
+    </script>
+    </div>
+{% endblock %}

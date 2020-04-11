@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block scroll %}{{ behaviour }}{% endblock %}
+{% block title %}Главная - Cellular{% endblock %}
+{% block style %}<link rel="stylesheet" href={{ url_for('static', filename='css/index.css') }}>{% endblock %}
+
+
+
+{% block content %}
+    <section class="landing-section landing-main">
+        <div class="landing-section-content">
+        <h1 class="header-main">Cellule</h1>
+        <h2 class="header-main-subheader">В помощь биологам: считаем клетки на изображении</h2>
+            <a href="#project" class="bth btn-default btn-lg" role="button">
+                <i class="fas fa-angle-double-down fa-3x" id="arrow"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="project" class="landing-section landing-description">
+        <div class="landing-section-content">
+        <h3>О проекте</h3>
+        <p>Это инструмент для подсчета клеток на изображении</p>
+        <p>В его основе лежит конволюционная нейросеть</p>
+        <p>Она обучена на синтетических изображениях</p>
+        <p>Она хорошо справляется с подсчетом маленьких клеток одинаковой формы</p>
+        <p>Работоспособность проверена на клетках RPE и Precursor T-Cell LBL</p>
+             <a href="#how_to" class="bth btn-default btn-lg" role="button">
+                <i class="fas fa-angle-double-down fa-3x" id="arrow"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="how_to" class="landing-section landing-description">
+        <div class="landing-section-content">
+        <h3>Как это работает?</h3>
+        <ol>
+            <li>Загружаете картинку в формате png, jpeg или tiff (только одно изображение)</li>
+            <li>Выбираете тип сети: FCRN или UNet. Рекомендуем использовать FCRN.
+                UNet в некоторых случаях работает лучше, но требует, чтобы ширина и высота изображения были степенью двойки.
+                Программа автоматически изменяет размер изображения, но не всегда получается сделать это адекватно.</li>
+            <li>Получаете количество клеток на изображении. А также карту плотности, чтобы визуально оценить, насколько правильно сеть увидела клетки.</li>
+        </ol>
+            <a href="#start" class="bth btn-default btn-lg" role="button">
+                <i class="fas fa-angle-double-down fa-3x" id="arrow"></i>
+            </a>
+        </div>
+     </section>
+
+    <section class="landing-section landing-description">
+        <div class="landing-section-content">
+            <h3><a id="start">Подсчет клеток</a></h3>
+            <p>Не рекомендуем загружать картинки с разрешением больше, чем 400 x 400. Нейросеть хуже с ними справляется. Если
+            у вас большое изображение, разрежьте его на несколько частей (лучше квадратных), а затем просуммируйте результаты.
+            Сделать это можно здесь: <a href='https://splitter.imageonline.co/'>https://splitter.imageonline.co/</a></p>
+            <form method="post" class="md-form" enctype="multipart/form-data" onsubmit="return validate_size();">
+              <div class="file-field">
+                <div class="btn btn-primary btn-sm float-left">
+                  <input type="file" name="file" lang="ru" id="file">
+                </div>
+              </div>
+                <div class="row justify-content-center">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="fcrn" checked>
+                      <label class="form-check-label" for="inlineRadio1">FCRN</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="unet">
+                      <label class="form-check-label" for="inlineRadio2">UNet</label>
+                    </div>
+                </div>
+                <input class="btn btn-primary btn-sm mx-auto" type="submit" value="Посчитать клетки" id="upload">
+                <script>
+                    function validate_size() {
+                        var oFile = document.getElementById("file").files[0];
+
+                        if (oFile.size > 2097152) // 2 mb for bytes.
+                        {
+                            alert("Слишком большой размер файла! Размер должен быть меньше 2 МБ");
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+
+                    }
+                </script>
+            </form>
+        </div>
+
+        <!-- блок, отвечающий за flash из flask -->
+        <div class="container">
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+

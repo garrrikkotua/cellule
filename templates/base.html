@@ -1,0 +1,91 @@
+<html lang="ru" style="scroll-behavior: {% block scroll %}auto{% endblock %}">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Считаем клетки{% endblock %}</title>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/js/mdb.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7f724ca424.js" crossorigin="anonymous"></script>
+    {% block style %}<link rel="stylesheet" href={{ url_for('static', filename='css/base.css') }}>{% endblock %}
+    <link rel="shortcut icon" href={{ url_for('static', filename='images/favicon.ico') }}/>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #e398ff;">
+      <a class="navbar-brand" style="color: black" href="/">Cellule</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" style="color: black" href="/">Главная <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" style="color: black" href="/#start">Посчитать клетки</a>
+          <a class="nav-item nav-link" style="color: black" href="/#project">О проекте</a>
+          <a class="nav-item nav-link" style="color: black" href="/#how_to">Инструкция</a>
+        </div>
+      </div>
+    </nav>
+
+        <div id="content">
+            {% block content %}  {% endblock %}
+        </div>
+    <!-- Footer -->
+    <footer class="page-footer font-small pt-4" style="background-color: #e398ff;">
+
+      <!-- Footer Text -->
+      <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-md-6 mt-md-0 mt-3">
+
+            <!-- Content -->
+            <h5 class="text-uppercase font-weight-bold">Ссылки</h5>
+            <p>Архитектура нейросети и код для ее обучения заимствованы мной из этого репозитория
+            <a href="https://github.com/NeuroSYS-pl/objects_counting_dmap">Нейросеть</a></p>
+            <p>Также мне очень помогла статья авторов этой архитектуры
+            <a href="http://www.robots.ox.ac.uk/~vgg/research/counting/index_org.html">Статья</a></p>
+            <p>Код всего этого проекта вы можете найти в моем репозитории
+            <a href="http://github.com/garrrikkotua">Код проекта</a></p>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none pb-3">
+
+          <!-- Grid column -->
+          <div class="col-md-6 mb-md-0 mb-3">
+
+            <!-- Content -->
+            <h5 class="text-uppercase font-weight-bold">Пожелания</h5>
+            <p>Оставляйте оценки на странице с результатами. Так вы поможете мне улучшить проект</p>
+            <p>Если у вас есть вопросы или предложения по улучшению проекта, можете написать мне в
+            <a href="https://teleg.run/garrrikkotua">Telegram</a></p>
+            <strong><p>Понравился проект? Хотите, чтобы он становился лучше? Поддержите меня на
+              <a href="https://www.patreon.com/igorkotua">Patreon</a></p></strong>
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Text -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://cellule.ru/"> Cellule.ru</a>
+      </div>
+      <!-- Copyright -->
+
+
+    </footer>
+</body>
+</html>

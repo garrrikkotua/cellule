@@ -1,0 +1,40 @@
+.jumbotron {
+    color: black;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding-bottom: 100px; //height of the footer
+}
+
+
+hr {
+    background-color: black;
+    height: 2px;
+    color: black;
+}
+html {
+    overflow: hidden;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
+#logo {
+    width: 70px;
+    height: 70px;
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: 1;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}

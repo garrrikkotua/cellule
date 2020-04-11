@@ -1,0 +1,29 @@
+html {
+  overflow-x: hidden;
+}
+
+
+.star-rating {
+  line-height:32px;
+  font-size:1.25em;
+}
+
+.star-rating .fa-star{color: #e398ff;}
+
+#go {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
+
+
+
+
+
