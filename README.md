@@ -4,4 +4,4 @@ This is repository for website Cellule.ru. On the website you can estimate numbe
 
 The core of the app is convolutional neural net written in Pytorch. It was trained on synthetic data and tested on real one. Neural net shows very reliable results on regularly shaped even sized cells. The code for neural net and syhthetic data generation is taken from this repo: https://github.com/NeuroSYS-pl/objects_counting_dmap.
 
-If you want to use pretrained models yourself, you can take it from my repo: cell_FCRN_A.pth and cell_UNet.pth - Pytorch saved models.
+If you want to use pretrained models yourself, you can take it from my repo: <strong>cell_FCRN_A.pth and cell_UNet.pth</strong> - Pytorch saved models.
