@@ -17,7 +17,7 @@ TYPE1 = 'FCRN'
 TYPE2 = 'UNet'
 
 app = Flask(__name__)
-app.secret_key = b'+\xbe\xba*@G$\xb5\x91\xa3\xaa\x8f\x1bD\nt'
+app.secret_key = b'here should be some secret key'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
